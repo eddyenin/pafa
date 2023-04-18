@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="">
 	<link rel="author" href="https://plus.google.com/u/0/104296509460513856975" />
-	
+
 	<!-- Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CRaleway:600,400%7CHind' rel='stylesheet'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,600,800,400,300%7CMontserrat:400,700%7CRaleway:600,400' rel='stylesheet'>
@@ -16,23 +16,23 @@
 
 
 	<!-- Css -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/magnific-popup.css" />
-	<link rel="stylesheet" href="revolution/css/settings.css" />
-	<link rel="stylesheet" href="css/rev-slider.css" />
-	<link rel="stylesheet" href="css/font-icons.css" />
-	<link rel="stylesheet" href="css/sliders.css" /> 
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/responsive.css" />
-	<link rel="stylesheet" href="css/spacings.css" />
-	<link rel="stylesheet" href="css/animate.min.css" />
-	<link rel="stylesheet" href="css/color.css" />
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}" />
+	<link rel="stylesheet" href="{{ asset('revolution/css/settings.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/rev-slider.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/font-icons.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/sliders.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/spacings.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/animate.min.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/color.css') }}" />
 
 	<!-- Favicons -->
-	<link rel="shortcut icon" href="img/favicon.ico">
-	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+	<link rel="shortcut icon" href="{{ asset('mg/favicon.ico') }}i">
+	<link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/apple-touch-icon-72x72.png') }}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/apple-touch-icon-114x114.png') }}">
 
 </head>
 
@@ -46,7 +46,7 @@
 	</div>
 
 	<header class="nav-type-2 onepage-nav" id="home">
-	
+
 		<nav class="navbar navbar-fixed-top">
 			<div class="navigation-overlay dark">
 				<div class="container-fluid semi-fluid relative">
@@ -66,14 +66,14 @@
 						<div class="logo-container">
 							<div class="logo-wrap local-scroll">
 								<a href="#home">
-									<img class="logo" src="img/logo/pafa_logo_white.png" width="50px" alt="logo">
+									<img class="logo" src="{{ asset('') }}img/logo/pafa_logo_white.png" width="50px" alt="logo">
 								</a>
 							</div>
 						</div>
 
 						<div class="col-md-9 nav-wrap right">
 							<div class="collapse navbar-collapse" id="navbar-collapse">
-							  
+
 								<ul class="nav navbar-nav local-scroll navbar-right">
 
 									<li class="active">
@@ -97,12 +97,12 @@
 									<li>
 										<a href="#contact">Contact</a>
 									</li>
-									
-			
+
+
 								</ul>
 							</div>
 						</div> <!-- end col -->
-				
+
 					</div> <!-- end row -->
 				</div> <!-- end container -->
 			</div> <!-- end navigation -->
@@ -110,7 +110,7 @@
 	</header>
 
 	<div class="main-wrapper oh">
-		
+
 		<!-- Text Rotator -->
 		<section class="hero-wrap text-center" style="background: url('img/pafa/PAFA_BG_.jpg') no-repeat, center center/cover;">
 
@@ -137,15 +137,15 @@
 				<div class="row">
 					<div class="col-sm-6 col-6 col-md-6 intro-video">
 						<iframe width="100%" height="315" src="https://www.youtube.com/embed/mprHfPZMnEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						
+
 					</div> <!-- end col -->
 
 					<div class="col-sm-6 col-6 col-md-6 intro-content">
 						<h2 class="text-center">About us</h2>
 						<p class="intro-text">
-							Precious Apparel fashion academy is dedicated to educating aspiring fashion designers on the latest fashion trends, design techniques, and best industry practices. 
+							Precious Apparel fashion academy is dedicated to educating aspiring fashion designers on the latest fashion trends, design techniques, and best industry practices.
 
-							Whether you’re a beginner looking to learn more about the world of fashion or an experienced designer looking to refine your skills, our courses, lectures, and resources can help you every step of the way. 
+							Whether you’re a beginner looking to learn more about the world of fashion or an experienced designer looking to refine your skills, our courses, lectures, and resources can help you every step of the way.
 
 							Our Vision is to simply fashion design and make it easy / affordable for a road side tailor to have access to quality fashion design training and gain standard fashion knowledge.
 
@@ -183,13 +183,13 @@
 												<span>project</span>
 											</div>
 										</div>
-									</a>										
+									</a>
 								</div>
-							</div> 
+							</div>
 						</div> <!-- end work-item -->
 
 
-						
+
 						<div class="work-item hover-2">
 							<div class="work-container">
 								<div class="work-img">
@@ -201,9 +201,9 @@
 												<span>project</span>
 											</div>
 										</div>
-									</a>										
+									</a>
 								</div>
-							</div> 
+							</div>
 						</div> <!-- end work-item -->
 
 						<div class="work-item hover-2">
@@ -217,9 +217,9 @@
 												<span>project</span>
 											</div>
 										</div>
-									</a>										
+									</a>
 								</div>
-							</div> 
+							</div>
 						</div> <!-- end work-item -->
 
 
@@ -234,12 +234,12 @@
 												<span>project</span>
 											</div>
 										</div>
-									</a>										
+									</a>
 								</div>
-							</div> 
+							</div>
 						</div> <!-- end work-item -->
 
-						
+
 						<div class="work-item hover-2">
 							<div class="work-container">
 								<div class="work-img">
@@ -251,12 +251,12 @@
 												<span>project</span>
 											</div>
 										</div>
-									</a>										
+									</a>
 								</div>
-							</div> 
+							</div>
 						</div> <!-- end work-item -->
 
-						
+
 						<div class="work-item hover-2">
 							<div class="work-container">
 								<div class="work-img">
@@ -268,9 +268,9 @@
 												<span>project</span>
 											</div>
 										</div>
-									</a>										
+									</a>
 								</div>
-							</div> 
+							</div>
 						</div> <!-- end work-item -->
 
 						<div class="work-item hover-2">
@@ -284,9 +284,9 @@
 												<span>project</span>
 											</div>
 										</div>
-									</a>										
+									</a>
 								</div>
-							</div> 
+							</div>
 						</div> <!-- end work-item -->
 
 						<div class="work-item hover-2">
@@ -300,16 +300,16 @@
 												<span>project</span>
 											</div>
 										</div>
-									</a>										
+									</a>
 								</div>
-							</div> 
+							</div>
 						</div> <!-- end work-item -->
 
 
 
 					</div>	<!-- end slider -->
 				</div> <!-- end row -->
-				
+
 			</div>
 		</section> <!-- end featured works -->
 
@@ -333,8 +333,8 @@
 								<i class="fa-sharp fa-solid fa-tape"></i>
 							</a>
 							<h3>Integrity</h3>
-							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>			
-						</div>						
+							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>
+						</div>
 					</div> <!-- end service item -->
 
 					<div class="col-md-4 mb-60 wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".1s">
@@ -343,8 +343,8 @@
 								<i class="fa-solid fa-wand-magic-sparkles"></i>
 							</a>
 							<h3>Creativity</h3>
-							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>			
-						</div>						
+							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>
+						</div>
 					</div> <!-- end service item -->
 
 					<div class="col-md-4 mb-60 wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".1s">
@@ -353,8 +353,8 @@
 								<i class="fa-solid fa-scissors"></i>
 							</a>
 							<h3>Craftmanship</h3>
-							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>			
-						</div>						
+							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>
+						</div>
 					</div> <!-- end service item -->
 
 					<div class="col-md-4 mb-60 wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".2s">
@@ -363,8 +363,8 @@
 								<i class="fa-solid fa-book-open"></i>
 							</a>
 							<h3>Accountability</h3>
-							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>			
-						</div>						
+							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>
+						</div>
 					</div> <!-- end service item -->
 
 					<div class="col-md-4 mb-60 wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".2s">
@@ -373,8 +373,8 @@
 								<i class="fa-solid fa-magnifying-glass"></i>
 							</a>
 							<h3>Transparency</h3>
-							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>			
-						</div>						
+							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>
+						</div>
 					</div> <!-- end service item -->
 
 					<div class="col-md-4 wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".2s">
@@ -383,10 +383,10 @@
 								<i class="fa-solid fa-crown"></i>
 							</a>
 							<h3>Expertise</h3>
-							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>			
-						</div>						
+							<p class="mb-0">Afela is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur. Fully Responsive Theme.</p>
+						</div>
 					</div> <!-- end service item -->
-					
+
 				</div>
 			</div>
 		</section> <!-- end icon boxes -->
@@ -395,8 +395,8 @@
 		<!-- Testimonials -->
 		<section class="section-wrap parallax-testimonials nopadding relative">
 
-			<div class="relative">	
-			
+			<div class="relative">
+
 				<h2 class="text-center uppercase color-white">Happy Customers</h2>
 				<div id="owl-testimonials" class="owl-carousel owl-theme text-center">
 
@@ -469,7 +469,7 @@
 								</div>
 							</div>
 							<h4 class="team-title">David Geller</h4>
-							<span>CEO of Company</span>						
+							<span>CEO of Company</span>
 						</div>
 					</div> <!-- end team member -->
 
@@ -488,7 +488,7 @@
 									</div>
 								</div>
 							</div>
-										
+
 						</div>
 					</div> <!-- end team member -->
 
@@ -507,7 +507,7 @@
 									</div>
 								</div>
 							</div>
-												
+
 						</div>
 					</div> <!-- end team member -->
 
@@ -521,7 +521,7 @@
 			<div class="container">
 				<div class="row">
 
-					<div class="col-xs-12 text-center">		
+					<div class="col-xs-12 text-center">
 						<h3 class="color-white">Are you ready to join our ONLINE tutorials? Now is a Great Opportunity</h3>
 						<div class="cta-button">
 							<a href="#" class="btn btn-lg btn-transparent">Register Now</a>
@@ -535,7 +535,7 @@
 
 		<!-- From Blog -->
 		<section class="section-wrap-lg pb-90 pb-mdm-50 from-blog" id="blog">
-			<div class="container">	
+			<div class="container">
 
 				<div class="row heading">
 					<div class="col-md-6 col-md-offset-3 text-center">
@@ -552,8 +552,8 @@
 								<img src="img/blog_1.jpg" alt="">
 							</a>
 							<div class="entry-date">
-								<span>28</span>									
-								<span>nov</span>									
+								<span>28</span>
+								<span>nov</span>
 							</div>
 						</div>
 						<div class="entry">
@@ -571,8 +571,8 @@
 								<img src="img/blog_2.jpg" alt="">
 							</a>
 							<div class="entry-date">
-								<span>25</span>									
-								<span>nov</span>									
+								<span>25</span>
+								<span>nov</span>
 							</div>
 						</div>
 						<div class="entry">
@@ -590,8 +590,8 @@
 								<img src="img/blog_3.jpg" alt="">
 							</a>
 							<div class="entry-date">
-								<span>20</span>									
-								<span>nov</span>									
+								<span>20</span>
+								<span>nov</span>
 							</div>
 						</div>
 						<div class="entry">
@@ -609,8 +609,8 @@
 								<img src="img/blog_4.jpg" alt="">
 							</a>
 							<div class="entry-date">
-								<span>15</span>									
-								<span>nov</span>									
+								<span>15</span>
+								<span>nov</span>
 							</div>
 						</div>
 						<div class="entry">
@@ -636,7 +636,7 @@
 				</div>
 			</div>
 			<div class="container-fluid  bg-dark">
-				
+
 				<div class="row">
 
 					<div id="owl-partners" class="owl-carousel owl-theme">
@@ -645,7 +645,7 @@
 							<a href="#">
 								<img src="img/logo/logo5.png" alt="">
 							</a>
-						</div> 
+						</div>
 
 						<div class="item">
 							<a href="#">
@@ -657,22 +657,22 @@
 							<a href="#">
 								<img src="img/logo/logo3.png" alt="">
 							</a>
-						</div> 
+						</div>
 
 						<div class="item">
 							<a href="#">
 								<img src="img/logo/logo2.png" alt="">
 							</a>
-						</div> 
+						</div>
 
 						<div class="item">
 							<a href="#">
 								<img src="img/logo/logo1.png" alt="">
 							</a>
-						</div> 
+						</div>
 
 					</div> <!-- end carousel -->
-					
+
 				</div>
 			</div>
 		</section> <!-- end partners -->
@@ -744,7 +744,7 @@
 
 
 		<!-- Google Map -->
-		<div class="gmap-btn">Open Map</div>	
+		<div class="gmap-btn">Open Map</div>
 		<div class="gmap gmap-hidden" id="map_canvas" data-address="V Tytana St, Manila, Philippines"></div>
 
 
@@ -755,7 +755,7 @@
 					<div class="row">
 
 						<div class="col-md-4 col-md-offset-4">
-							
+
 							<div class="footer-logo local-scroll text-center mb-20 wow zoomIn" data-wow-duration="1s" data-wow-delay="0.2s">
 								<h3 class="color-white uppercase">
 									<a href="#home">PAFA</a>
@@ -764,11 +764,11 @@
 
 							<div class="footer-socials mt-mdm-10">
 								<div class="social-icons text-center">
-									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-instagram"></i></a>
 									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-youtube"></i></a>										
+									<a href="#"><i class="fa fa-youtube"></i></a>
 									<!-- <a href="#"><i class="fa fa-google-plus"></i></a> -->
-									<a href="#"><i class="fa fa-linkedin"></i></a>
+									{{-- <a href="#"><i class="fa fa-linkedin"></i></a> --}}
 									<!-- <a href="#"><i class="fa fa-vimeo"></i></a> -->
 								</div>
 							</div>
@@ -776,7 +776,7 @@
 						</div>
 
 					</div>
-				</div>		
+				</div>
 			</div> <!-- end container -->
 
 			<div class="bottom-footer">
@@ -802,16 +802,16 @@
 
 	<!-- jQuery Scripts -->
 	<script src="https://kit.fontawesome.com/0c94bff300.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/plugins.js"></script>
-	<script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-	<script type="text/javascript" src="js/rev-slider.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.tools.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/rev-slider.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
 
 	<!-- Google Map -->
-	<!-- 
+	<!--
     1. Generate your key here - https://developers.google.com/maps/documentation/javascript/get-api-key
     2. Paste your key in the script below.
   -->
@@ -823,12 +823,12 @@
 			function initGmap(){
 
 				var maplocation = jQuery(".gmap").attr("data-address");
-				
+
 				jQuery(".gmap").gmap3({
 					marker: {
 						address: maplocation,
 						options: {
-							icon: "img/map_pin.png"
+							icon: "{{ asset('img/map_pin.png') }}"
 						}
 					},
 					map:{
@@ -868,7 +868,7 @@
 
 			});
 		});
-	</script>  
-	  
+	</script>
+
 </body>
 </html>
