@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogImages;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -33,24 +34,48 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $slug = str_replace(' ', ' - ', $request->title);
+        $slug = str_replace(' ', '-', $request->title);
 
 
         $validate = $request->validate([
-            'title' => ['required', 'unique:title', 'max:200'],
-            'body' => ['required'],
-            'image_path' => ['required','mimes:jpg,png,jpg,jpeg','max:102400'],
+            'title' => ['required', 'unique:posts', 'max:200'],
+            'photos' => 'required',
             'info' => ['required']
         ]);
 
-        $post = Post::create([
-            'title' => $request->title,
-            'slug' => $slug,
-            'image_path' => $this->image_upload($request->file),
-            'body' => $request->info
-        ]);
+        if ($request->hasFile('photos'))
+        {
+            // dd($request->photos);exit;
+                $post = new Post([
+                    'title' => $request->title,
+                    'slug' => $slug,
+                    'body' => $request->info
+                ]);
 
-        $post->save();
+                $post->save();
+
+                foreach($request->photos as $photo){
+
+                    $allowedExtensions = ['png','jpg','jpeg','pdf','docx'];
+                    $name = $photo->getClientOriginalName();
+                    $ext = $photo->getClientOriginalExtension();
+
+                    $newFileName = uniqid() . '-' . $name;
+                    $check = in_array($ext,$allowedExtensions);
+
+                    if($check){
+                        $photo->move(public_path('img/photos'), $newFileName);
+                        $blogImage = new BlogImages([
+                            'post_id' => $post->id,
+                            'filename' => $newFileName
+                        ]);
+                        $post->blogImages()->save($blogImage);
+                    }else{
+                        echo "something went wrong";
+                    }
+
+                }
+        }
 
         return redirect(route('blog.create'))->with('status', 'Post successful');
     }
@@ -87,18 +112,4 @@ class PostController extends Controller
         //
     }
 
-    private function image_upload($request)
-    {
-       $file = $request->file('photos');
-       foreach($file as $fil)
-       {
-        $imageName = $fil->getClientOriginalName();
-        $ext = $fil->getClientOriginalExtension();
-
-        $newImageName = uniqid() . $imageName . ' . ' . $ext;
-       }
-
-        $file->move(public_path('img/photos'), $newImageName);
-
-    }
 }

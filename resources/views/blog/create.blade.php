@@ -31,6 +31,16 @@
 
 					<!-- content -->
 					<div class="col-md-8 post-content mb-50">
+                        @if ($errors)
+                           @foreach ($errors->all() as $error )
+                               <div class="alert alert-danger">
+                                    <ul>
+                                        <li>{{ $error }}</li>
+                                    </ul>
+                               </div>
+                           @endforeach
+
+                        @endif
 
                         <h2 class="">
                             <a href="Javascript:void()">{{ $title }}</a>
@@ -44,7 +54,7 @@
 							</div>
                             <div class="form-group ">
                                 <label for="">Photos</label>
-                                <input type="file" class="form-control" name="photos[]" placeholder="" multiple>
+                                <input type="file" class="" name="photos[]" placeholder="" multiple>
 							</div>
                             <div class="form-group">
                                 <label for="">Message</label>
