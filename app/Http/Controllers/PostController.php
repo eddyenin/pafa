@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogImages;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('blog.index');
+
+       return view('blog.index',['title'=>'Illustration', 'posts'=>Post::all()]);
     }
 
     /**
@@ -22,9 +24,11 @@ class PostController extends Controller
     public function create()
     {
         $title = "Add post";
+        $category = Category::all();
         return view('blog.create',
             [
-                'title' => $title
+                'title' => $title,
+                'categories'=>$category
             ]
         );
     }
@@ -39,20 +43,23 @@ class PostController extends Controller
 
         $validate = $request->validate([
             'title' => ['required', 'unique:posts', 'max:200'],
+            'category'=>['required'],
             'photos' => 'required',
             'info' => ['required']
         ]);
 
         if ($request->hasFile('photos'))
         {
-            // dd($request->photos);exit;
+
+
                 $post = new Post([
                     'title' => $request->title,
                     'slug' => $slug,
                     'body' => $request->info
                 ]);
-
                 $post->save();
+                $post->categories()->attach($request->category);
+
 
                 foreach($request->photos as $photo){
 

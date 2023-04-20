@@ -16,7 +16,7 @@
 							</li>
 
 							<li class="active">
-								<a href="{{ route('category.create') }}">Add category</a>
+								<a href="{{ route('blog.create') }}">Add post</a>
 							</li>
 						</ol>
 					</div>
@@ -36,30 +36,14 @@
                         <h2 class="">
                             <a href="Javascript:void()">{{ $title }}</a>
                         </h2>
-						<form class="" action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+						<form class="" action="{{ route('category.store') }}" method="POST">
                             @csrf
 
-                            <div class="form-group">
-                                <label for="Title">Category</label>
-                               <select name="category" id="" class="form-control">
-                                    <option value="">select category...</option>
-                                    @foreach ($categories as $category )
-                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                    @endforeach
-                               </select>
-							</div>
 							<div class="form-group">
                                 <label for="Title">Title</label>
                                 <input type="text" class="form-control" name="title" placeholder="Title">
 							</div>
-                            <div class="form-group ">
-                                <label for="">Photos</label>
-                                <input type="file" class="" name="photos[]" placeholder="" multiple>
-							</div>
-                            <div class="form-group">
-                                <label for="">Message</label>
-                               <textarea name="info" id="" cols="30" rows="10"></textarea>
-							</div>
+
                             <div class="form-group">
                                <button class="btn btn-success btn-md">submit</button>
 							</div>
@@ -73,38 +57,26 @@
 					<!-- Sidebar -->
 					<aside class="col-md-4 sidebar">
 
-						<div class="widget search">
+						{{-- <div class="widget search">
 							<form class="relative">
 								<input type="search" class="searchbox mb-0" placeholder="Search">
 								<button type="submit" class="search-button"><i class="fa fa-search"></i></button>
 							</form>
-						</div>
+						</div> --}}
 
 						<!-- Categories -->
 						<div class="widget categories">
 							<h3 class="widget-title heading relative heading-small uppercase bottom-line style-2 left-align">Categories</h3>
 							<ul class="list-dividers">
-								<li>
-									<a href="#">Business<span>106</span></a>
-								</li>
-								<li class="active-cat">
-									<a href="#">Science<span>77</span></a>
-								</li>
-								<li>
-									<a href="#">Sport<span>68</span></a>
-								</li>
-								<li>
-									<a href="#">Politics<span>57</span></a>
-								</li>
-								<li>
-									<a href="#">Lifestyle<span>125</span></a>
-								</li>
-								<li>
-									<a href="#">World<span>344</span></a>
-								</li>
-								<li>
-									<a href="#">Travel<span>128</span></a>
-								</li>
+                                @if ($categories)
+                                    @foreach ($categories as $category )
+                                        <li>
+                                            <a href="#">{{ $category->title }}</a>
+                                        </li>
+                                    @endforeach
+                                @else
+                                    <p>No category</p>
+								@endif
 							</ul>
 						</div>
 
