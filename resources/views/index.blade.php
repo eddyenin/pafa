@@ -468,8 +468,8 @@
 									</div>
 								</div>
 							</div>
-							<h4 class="team-title">David Geller</h4>
-							<span>CEO of Company</span>
+							{{-- <h4 class="team-title">David Geller</h4>
+							<span>CEO of Company</span> --}}
 						</div>
 					</div> <!-- end team member -->
 
@@ -546,81 +546,29 @@
 
 				<div class="row">
 
+                    @foreach($forma as $fo)
 					<article class="col-md-3 col-sm-6 col-xs-12 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
 						<div class="entry-img">
-							<a href="blog-single.html" class="hover-scale">
-								<img src="img/blog_1.jpg" alt="">
-							</a>
-							<div class="entry-date">
-								<span>28</span>
-								<span>nov</span>
-							</div>
-						</div>
-						<div class="entry">
-							<h4 class="entry-title"><a href="blog-single.html">This is blog post title. You can edit it.</a></h4>
-							<div class="entry-content">
-								<p>We possess within us two minds. So far I have written only of the conscious mind.</p>
-								<a href="blog-single.html" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</article> <!-- end post -->
 
-					<article class="col-md-3 col-sm-6 col-xs-12 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".2s">
-						<div class="entry-img">
-							<a href="blog-single.html" class="hover-scale">
-								<img src="img/blog_2.jpg" alt="">
-							</a>
-							<div class="entry-date">
-								<span>25</span>
-								<span>nov</span>
-							</div>
-						</div>
-						<div class="entry">
-							<h4 class="entry-title"><a href="blog-single.html">Italian Fashion Week</a></h4>
-							<div class="entry-content">
-								<p>We possess within us two minds. So far I have written only of the conscious mind.</p>
-								<a href="blog-single.html" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</article> <!-- end post -->
+                                <a href="blog-single.html" class="hover-scale">
+                                    <img src="{{ asset('img/photos/643ff93f56d17-logo5.png') }}" alt="">
+                                </a>
+                                <div class="entry-date">
+                                    <span>28</span>
+                                    <span>nov</span>
+                                </div>
 
-					<article class="col-md-3 col-sm-6 col-xs-12 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".3s">
-						<div class="entry-img">
-							<a href="blog-single.html" class="hover-scale">
-								<img src="img/blog_3.jpg" alt="">
-							</a>
-							<div class="entry-date">
-								<span>20</span>
-								<span>nov</span>
-							</div>
-						</div>
-						<div class="entry">
-							<h4 class="entry-title"><a href="blog-single.html">How to choose business suit</a></h4>
-							<div class="entry-content">
-								<p>We possess within us two minds. So far I have written only of the conscious mind.</p>
-								<a href="blog-single.html" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</article> <!-- end post -->
 
-					<article class="col-md-3 col-sm-6 col-xs-12 last wow fadeIn" data-wow-duration="2s" data-wow-delay=".4s">
-						<div class="entry-img">
-							<a href="blog-single.html" class="hover-scale">
-								<img src="img/blog_4.jpg" alt="">
-							</a>
-							<div class="entry-date">
-								<span>15</span>
-								<span>nov</span>
-							</div>
 						</div>
 						<div class="entry">
-							<h4 class="entry-title"><a href="blog-single.html">New apparel collection</a></h4>
+							<h4 class="entry-title"><a href="blog-single.html">{{ $fo->title }}</a></h4>
 							<div class="entry-content">
 								<p>We possess within us two minds. So far I have written only of the conscious mind.</p>
-								<a href="blog-single.html" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
+								<a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
 					</article> <!-- end post -->
+                    @endforeach
 
 				</div> <!-- end row -->
 			</div>

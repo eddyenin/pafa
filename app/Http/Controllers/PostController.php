@@ -14,6 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        $posts = Post::all();
+
+
 
        return view('blog.index',['title'=>'Illustration', 'posts'=>Post::all()]);
     }
@@ -40,7 +43,6 @@ class PostController extends Controller
     {
         $slug = str_replace(' ', '-', $request->title);
 
-
         $validate = $request->validate([
             'title' => ['required', 'unique:posts', 'max:200'],
             'category'=>['required'],
@@ -51,37 +53,36 @@ class PostController extends Controller
         if ($request->hasFile('photos'))
         {
 
+            $post = new Post([
+                'title' => $request->title,
+                'slug' => $slug,
+                'body' => $request->info
+            ]);
+            $post->save();
+            $post->categories()->attach($request->category);
 
-                $post = new Post([
-                    'title' => $request->title,
-                    'slug' => $slug,
-                    'body' => $request->info
-                ]);
-                $post->save();
-                $post->categories()->attach($request->category);
 
+            foreach($request->photos as $photo){
 
-                foreach($request->photos as $photo){
+                $allowedExtensions = ['png','jpg','jpeg','pdf','docx'];
+                $name = $photo->getClientOriginalName();
+                $ext = $photo->getClientOriginalExtension();
 
-                    $allowedExtensions = ['png','jpg','jpeg','pdf','docx'];
-                    $name = $photo->getClientOriginalName();
-                    $ext = $photo->getClientOriginalExtension();
+                $newFileName = uniqid() . '-' . $name;
+                $check = in_array($ext,$allowedExtensions);
 
-                    $newFileName = uniqid() . '-' . $name;
-                    $check = in_array($ext,$allowedExtensions);
-
-                    if($check){
-                        $photo->move(public_path('img/photos'), $newFileName);
-                        $blogImage = new BlogImages([
-                            'post_id' => $post->id,
-                            'filename' => $newFileName
-                        ]);
-                        $post->blogImages()->save($blogImage);
-                    }else{
-                        echo "something went wrong";
-                    }
-
+                if($check){
+                    $photo->move(public_path('img/photos'), $newFileName);
+                    $blogImage = new BlogImages([
+                        'post_id' => $post->id,
+                        'filename' => $newFileName
+                    ]);
+                    $post->blogImages()->save($blogImage);
+                }else{
+                    echo "something went wrong";
                 }
+
+            }
         }
 
         return redirect(route('blog.create'))->with('status', 'Post successful');

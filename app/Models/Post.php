@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
@@ -12,7 +13,8 @@ class Post extends Model
 
     protected $fillable = ['title','slug','body'];
 
-    public function blogImages(){
+    public function blogImages():HasMany
+    {
         return $this->hasMany(BlogImages::class);
     }
 

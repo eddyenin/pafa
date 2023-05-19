@@ -12,7 +12,7 @@
 						<h1 class="uppercase">Blog</h1>
 						<ol class="breadcrumb">
 							<li>
-								<a href="index.html">Home</a>
+								<a href="{{ route('home') }}">Home</a>
 							</li>
 							<li>
 								<a href="{{ route('blog.create') }}">Add post</a>
@@ -36,26 +36,44 @@
                       @foreach ($posts as $post )
                           <!-- standard post -->
 						<article class="entry-item">
-                            @foreach ($post->blogImages() as $img)
-                            <div class="entry-img hover-scale">
-								<a href="blog-single.html">
-									<img src="{{ asset('img/photos'). $img->filename }}" alt="">
-								</a>
-							</div>
-                            @endforeach
 
+                            <div class="entry-slider">
+								{{-- <div class="flexslider" id="flexslider">
+                                    <div class="flex-viewport" style="overflow:hidden;position:relative"> --}}
+                                        {{-- <ul class="slides clearfix" style="width:1200%;transition-duration:0s;transform:translate3d(-363px,0px,0px)"> --}}
+                                            @foreach ($post->blogImages as $img)
+
+                                                <a href="#">
+                                                    <img src="{{ asset('img/photos/'. $img->filename) }}" style="width:80%;display:flex"alt="images">
+                                                </a>
+
+                                            @endforeach
+                                        {{-- </ul>
+                                    </div>
+
+								</div> --}}
+							</div> <!-- end slider -->
+
+                            {{-- <div class="entry-img hover-scale">
+								<a href="blog-single.html">
+
+								</a>
+							</div> --}}
 
 							<div class="entry">
 								<h2 class="entry-title">
-									<a href="blog-single.html">4 Ways Advertising Agencies Can Protect Themselves From Click Fraud.</a>
+									<a href="blog-single.html">{{ $post->title }}</a>
 								</h2>
 								<ul class="entry-meta list-inline">
 									<li class="entry-date">
-										<i class="fa fa-clock-o"></i><a href="#">19 July, 2015</a>
+										<i class="fa fa-clock-o"></i><a href="#">{{ $post->created_at }}</a>
 									</li>
-									<li class="entry-category">
-										<i class="fa fa-folder-open"></i><a href="#">Fashion</a>
+                                    @foreach ($post->categories as $cat)
+                                    <li class="entry-category">
+										<i class="fa fa-folder-open"></i><a href="#">{{ $cat->title }}</a>
 									</li>
+                                    @endforeach
+
 									<li class="entry-author">
 										<i class="fa fa-user"></i><a href="#">Admin</a>
 									</li>
