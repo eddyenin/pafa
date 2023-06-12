@@ -37,21 +37,27 @@
                           <!-- standard post -->
 						<article class="entry-item">
 
-                            <div class="entry-slider">
-								{{-- <div class="flexslider" id="flexslider">
-                                    <div class="flex-viewport" style="overflow:hidden;position:relative"> --}}
-                                        {{-- <ul class="slides clearfix" style="width:1200%;transition-duration:0s;transform:translate3d(-363px,0px,0px)"> --}}
-                                            @foreach ($post->blogImages as $img)
+                            <div class="">
 
-                                                <a href="#">
-                                                    <img src="{{ asset('img/photos/'. $img->filename) }}" style="width:80%;display:flex"alt="images">
-                                                </a>
+                                <div class="swiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        @foreach ($post->blogImages as $img)
+                                        <div class="swiper-slide">
+                                            <a href="#">
+                                                <img src="{{ asset('img/photos/'. $img->filename) }}" style="width:100%;display:flex;justify-content:center;align-items:center;flex-direction:row"alt="images">
+                                            </a>
+                                        </div>
+                                        @endforeach
 
-                                            @endforeach
-                                        {{-- </ul>
                                     </div>
 
-								</div> --}}
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev" style="color: #000;"></div>
+                                    <div class="swiper-button-next" style="color: #000"></div>
+
+								</div>
 							</div> <!-- end slider -->
 
                             {{-- <div class="entry-img hover-scale">

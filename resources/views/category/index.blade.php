@@ -65,20 +65,23 @@
 						</div> --}}
 
 						<!-- Categories -->
+                        @if ($categories)
 						<div class="widget categories">
 							<h3 class="widget-title heading relative heading-small uppercase bottom-line style-2 left-align">Categories</h3>
+
 							<ul class="list-dividers">
-                                @if ($categories)
-                                    @foreach ($categories as $category )
-                                        <li>
-                                            <a href="#">{{ $category->title }}</a>
-                                        </li>
-                                    @endforeach
-                                @else
-                                    <p>No category</p>
-								@endif
+
+                                @foreach ($categories as $category )
+                                    <li>
+                                        <a href="#">{{ $category->title }}</a>
+                                    </li>
+                                @endforeach
+
 							</ul>
 						</div>
+                        @else
+                            <span>No category</span>
+					    @endif
 
                     </aside>
                 </div>

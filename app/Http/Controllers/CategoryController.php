@@ -8,23 +8,21 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
    public function create(){
-
-
-        return view('category.index',['title'=>'Add category','categories'=>Category::all()]);
+    return view('category.index',['title'=>'Add category','categories'=>Category::all()]);
    }
 
    public function store(Request $request){
 
-       $validate =  $this->validate($request,['title' => 'required|unique:categories' ]);
+    $validate =  $this->validate($request,['title' => 'required|unique:categories' ]);
 
-       if($validate){
+    if($validate){
         $category = new Category(['title' => $request->title]);
         $category->save();
 
         return redirect(route('category.create'))->with('status', 'Category created successfuly');
-       }else{
+    }else{
         return redirect(route('category.create'))->with('error', 'Something went wrong');
-       }
+    }
 
    }
 }

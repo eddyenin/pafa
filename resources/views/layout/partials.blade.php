@@ -26,6 +26,8 @@
 	<link rel="stylesheet" href="{{ asset('css/spacings.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/animate.min.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/color.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
 
 	<!-- Favicons -->
 	<link rel="shortcut icon" href="{{ asset('img/logo/pafa_logo_white.png') }}">
@@ -150,6 +152,7 @@
 
     <!-- jQuery Scripts -->
     <script src="https://kit.fontawesome.com/0c94bff300.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>

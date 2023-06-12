@@ -543,34 +543,46 @@
 						<p class="subheading style-2">We help our clients market to the world and inspire minds of people</p>
 					</div>
 				</div>
-
+                @if ($forma)
 				<div class="row">
 
-                    @foreach($forma as $fo)
-					<article class="col-md-3 col-sm-6 col-xs-12 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
-						<div class="entry-img">
 
-                                <a href="blog-single.html" class="hover-scale">
-                                    <img src="{{ asset('img/photos/643ff93f56d17-logo5.png') }}" alt="">
-                                </a>
-                                <div class="entry-date">
-                                    <span>28</span>
-                                    <span>nov</span>
+                        @foreach($forma as $fo)
+                        <article class="col-md-3 col-sm-6 col-xs-12 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
+                            <div class="entry-img">
+
+                                    <a href="blog-single.html" class="hover-scale">
+                                        <img src="{{ asset('img/photos/643ff93f56d17-logo5.png') }}" alt="">
+                                    </a>
+                                    <div class="entry-date">
+                                        <span>28</span>
+                                        <span>nov</span>
+                                    </div>
+
+
+                            </div>
+                            <div class="entry">
+                                <h4 class="entry-title"><a href="blog-single.html">{{ $fo->title }}</a></h4>
+                                <div class="entry-content">
+                                    <p>We possess within us two minds. So far I have written only of the conscious mind.</p>
+                                    <a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
                                 </div>
+                            </div>
+                        </article> <!-- end post -->
+                        @endforeach
 
 
-						</div>
-						<div class="entry">
-							<h4 class="entry-title"><a href="blog-single.html">{{ $fo->title }}</a></h4>
-							<div class="entry-content">
-								<p>We possess within us two minds. So far I have written only of the conscious mind.</p>
-								<a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</article> <!-- end post -->
-                    @endforeach
 
-				</div> <!-- end row -->
+
+
+				</div>
+                <!-- end row -->
+                @else
+                    <div class="entry-content col-md-3 col-sm-6 col-xs-12 mb-20">
+                        <p style="text-center">No illusrations yet!</p>
+                        {{-- <a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a> --}}
+                    </div>
+                @endif
 			</div>
 		</section> <!-- end from blog -->
 

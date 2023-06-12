@@ -23,11 +23,11 @@
 		container_photo_height_init();
 		$.stellar('refresh');
 
-		var windowWidth = $(window).width();		
+		var windowWidth = $(window).width();
 		if (windowWidth <= 974) {
 			$('.dropdown-toggle').attr('data-toggle', 'dropdown');
 			$('.navigation, .navigation-overlay').removeClass("sticky offset scrolling");
-			$('.nav-type-1 nav.navbar').removeClass('navbar-fixed-top');    	
+			$('.nav-type-1 nav.navbar').removeClass('navbar-fixed-top');
 		}
 		if (windowWidth > 974) {
 			$('.dropdown-toggle').removeAttr('data-toggle', 'dropdown');
@@ -38,7 +38,7 @@
 		/* Mobile Menu Resize
 		-------------------------------------------------------*/
 		$(".navbar .navbar-collapse").css("max-height", $(window).height() - $(".navbar-header").height() );
-		
+
 	});
 
 
@@ -46,7 +46,7 @@
 	-------------------------------------------------------*/
 	$(window).scroll(function(){
 
-		var windowWidth = $(window).width();		
+		var windowWidth = $(window).width();
 		if ($(window).scrollTop() > 190 & windowWidth > 974){
 			$('.navigation-overlay, .navigation').addClass("sticky");
 			$('.logo-wrap').addClass("shrink");
@@ -96,14 +96,14 @@
 
 
 		$(function(){
-	 
+
 		var delay = 0
 
 			$('.overlay-menu > ul > li').each(function(){
 				$(this).css({animationDelay: delay+'s'})
 				delay += 0.1
 			})
- 
+
 		})
 
 	});
@@ -130,7 +130,7 @@
 		$('.search-wrap').fadeOut(200);
 		$('.nav-search').removeClass("open");
 	}
-		
+
 	$(document.body).on('click',function(e) {
 		closeSearch();
 	});
@@ -146,10 +146,10 @@
 	$('.dropdown-submenu > a').submenupicker();
 
 
-	/* Mobile Navigation 
+	/* Mobile Navigation
 	-------------------------------------------------------*/
 	$('.dropdown-toggle').on('click', function(e){ e.preventDefault(); });
-	
+
 
 	/* Mobile Detect
 	-------------------------------------------------------*/
@@ -203,7 +203,7 @@
 	$(".rotate").textrotator({
 		animation: "dissolve",
 		separator: ",",
-		speed: 3000 
+		speed: 3000
 	});
 
 
@@ -254,11 +254,11 @@
 		});
 	}
 
-	$('#list').on('click', function(){   
+	$('#list').on('click', function(){
 		get_list();
 	});
 
-	$('#grid').on('click', function(){ 
+	$('#grid').on('click', function(){
 		get_grid();
 	});
 
@@ -304,7 +304,7 @@
 				autoPlay: 3000,
 				pagination: false,
 				itemsCustom: [
-					[0, 2],      
+					[0, 2],
 					[450, 2],
 					[700, 3],
 					[1000, 3],
@@ -320,7 +320,7 @@
 			-------------------------------------------------------*/
 
 			$("#owl-testimonials").owlCarousel({
-		 
+
 				navigation: false,
 				autoHeight: true,
 				slideSpeed: 300,
@@ -328,25 +328,25 @@
 				paginationSpeed: 400,
 				singleItem: true,
 				stopOnHover: true
-		 
+
 			})
 
 
 			// style-3
 			$("#owl-testimonials-boxes").owlCarousel({
-			
+
 				navigation: false,
 				slideSpeed: 300,
 				pagination: true,
 				paginationSpeed: 400,
 				stopOnHover: true,
 				itemsCustom: [
-					[0, 1],      
+					[0, 1],
 					[450, 1],
 					[700, 2],
 					[1200, 2]
 				],
-			
+
 			})
 
 
@@ -359,7 +359,7 @@
 				pagination: false,
 				navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
 				itemsCustom: [
-					[0, 1],      
+					[0, 1],
 					[450, 2],
 					[700, 3],
 					[1000, 3],
@@ -375,13 +375,13 @@
 			-------------------------------------------------------*/
 
 			$("#owl-photography").owlCarousel({
-				
+
 				autoHeight: true,
 				navigation: true,
 				slideSpeed: 700,
 				singleItem: true,
 				navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
-		 
+
 			})
 
 
@@ -389,13 +389,13 @@
 			-------------------------------------------------------*/
 
 			$("#owl-single").owlCarousel({
-		 
+
 				navigation: true,
 				slideSpeed: 300,
 				paginationSpeed: 400,
 				singleItem: true,
 				navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
-		 
+
 			})
 
 
@@ -414,7 +414,7 @@
 			/* Related Works
 			-------------------------------------------------------*/
 
-			var owl = $("#owl-related-works"); 
+			var owl = $("#owl-related-works");
 			owl.owlCarousel({
 
 				slideSpeed: 300,
@@ -538,7 +538,7 @@
 		});
 	}
 
-	 
+
 	// Flexslider / Masonry
 	$('#flexslider').flexslider({
 		animation: "slide",
@@ -610,15 +610,15 @@
 
   // magnific popup bug fix
   var flkty = $gallery.data('flickity');
-  var arr = $.map($(".gallery-main").find("img"), function(el) { 
-    return {"src":el.src} 
-  });  
-  
+  var arr = $.map($(".gallery-main").find("img"), function(el) {
+    return {"src":el.src}
+  });
+
   $gallery.on('staticClick', function(event, pointer, cellElement, cellIndex) {
     if (!cellElement) {
       return;
     }
-    
+
     $.magnificPopup.open({
       items: arr,
       gallery: {
@@ -636,9 +636,9 @@
 
 		var bar = $('.progress-bar');
 		var bar_width = $(this);
-	
-		function loadDaBars() { 
-				 
+
+		function loadDaBars() {
+
 			$(bar).each(function(){
 				bar_width = $(this).attr('aria-valuenow');
 				$(this).width(bar_width + '%');
@@ -674,7 +674,7 @@
 		});
 	});
 
-	
+
 	/* Accordion
 	-------------------------------------------------------*/
 	function toggleChevron(e) {
@@ -690,7 +690,7 @@
 	/* Toggle
 	-------------------------------------------------------*/
 	var allToggles = $(".toggle > .panel-content").hide();
-	
+
 	$(".toggle > .acc-panel > a").on('click', function(){
 
 		if ($(this).hasClass("active")) {
@@ -703,8 +703,8 @@
 			$(this).addClass("active");
 			$(this).parent().next().slideDown("easeOutExpo");
 		}
-		
-		return false;       
+
+		return false;
 	});
 
 
@@ -712,15 +712,15 @@
 	-------------------------------------------------------*/
 	var Methods = $(".payment_methods > li > .payment_box").hide();
 	Methods.first().slideDown("easeOutExpo");
-	
+
 	$(".payment_methods > li > input").change(function(){
 
 		var current = $(this).parent().children(".payment_box");
 		Methods.not(current).slideUp("easeInExpo");
 		$(this).parent().children(".payment_box").slideDown("easeOutExpo");
-		
+
 		return false;
-		 
+
 	});
 
 
@@ -751,7 +751,7 @@
 			var quantityInput = jQuery(this).parents('.quantity').find('input.qty'),
 				newValue = parseInt(quantityInput.val(), 10) - 1,
 				minValue = parseInt(quantityInput.attr('min'), 10);
-			
+
 			if (!minValue) {
 				minValue = 1;
 			}
@@ -810,7 +810,7 @@
 	-------------------------------------------------------*/
 
 	var $portfolio = $('#portfolio-container');
-	$portfolio.imagesLoaded( function() {			
+	$portfolio.imagesLoaded( function() {
 		$portfolio.isotope({
 			isOriginLeft: true
 		});
@@ -838,7 +838,7 @@
 	});
 
 
-	$(window).load(function() {			
+	$(window).load(function() {
 
 		setTimeout(function() {
 			$.stellar('refresh');
@@ -871,7 +871,7 @@
 		e.preventDefault();
 
 		var $this = $(this);
-		
+
 		$.ajax({
 			type: "POST",
 			url: 'contact.php',
@@ -912,7 +912,7 @@
 			}
 		}, false );
 	}
-	
+
 })();
 
 $(window).scroll(function(event){
@@ -949,6 +949,28 @@ function container_photo_height_init(){
 		$(".container-photo-height").height($(window).height() - $(".nav-type-2").height() - $(".footer-type-5").height() );
 	})(jQuery);
 }
+
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    // pagination: {
+    //   el: '.swiper-pagination',
+    // },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+  });
 
 
 /* Style Switcher

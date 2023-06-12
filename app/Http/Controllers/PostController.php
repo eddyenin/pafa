@@ -16,9 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-
-
-       return view('blog.index',['title'=>'Illustration', 'posts'=>Post::all()]);
+       return view('blog.index',['title'=>'Illustration', 'posts'=>$posts]);
     }
 
     /**
@@ -28,11 +26,7 @@ class PostController extends Controller
     {
         $title = "Add post";
         $category = Category::all();
-        return view('blog.create',
-            [
-                'title' => $title,
-                'categories'=>$category
-            ]
+        return view('blog.create', ['title' => $title,'categories'=>$category]
         );
     }
 
@@ -43,7 +37,7 @@ class PostController extends Controller
     {
         $slug = str_replace(' ', '-', $request->title);
 
-        $validate = $request->validate([
+         $request->validate([
             'title' => ['required', 'unique:posts', 'max:200'],
             'category'=>['required'],
             'photos' => 'required',
@@ -52,11 +46,16 @@ class PostController extends Controller
 
         if ($request->hasFile('photos'))
         {
+            $image = $request->image;
+            $imageName = $image->getClientOriginalName();
+            //$imageExt = $image->getClientOriginalExtension();
+            $newImageName = uniqid() . '-' . $imageName;
 
             $post = new Post([
                 'title' => $request->title,
                 'slug' => $slug,
-                'body' => $request->info
+                'body' => $request->info,
+                'photo' => $newImageName
             ]);
             $post->save();
             $post->categories()->attach($request->category);
@@ -94,6 +93,10 @@ class PostController extends Controller
     public function show(string $id)
     {
         //
+        $post = Post::findOrfail($id);
+
+        return view('blog.show', ['post' => $post]);
+
     }
 
     /**
@@ -102,6 +105,9 @@ class PostController extends Controller
     public function edit(string $id)
     {
         //
+        $post = Post::findOrfail($id);
+
+        return view('blog.edit', ['post' => $post, 'title' => 'Edit post']);
     }
 
     /**

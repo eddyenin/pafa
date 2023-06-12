@@ -53,6 +53,10 @@
                                 <input type="text" class="form-control" name="title" placeholder="Title">
 							</div>
                             <div class="form-group ">
+                                <label for="">Main photo</label>
+                                <input type="file" class="" name="image" placeholder="">
+							</div>
+                            <div class="form-group ">
                                 <label for="">Photos</label>
                                 <input type="file" class="" name="photos[]" placeholder="" multiple>
 							</div>
