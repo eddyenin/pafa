@@ -12,14 +12,9 @@
 						<h1 class="uppercase">Blog</h1>
 						<ol class="breadcrumb">
 							<li>
-								<a href="{{ route('home') }}">Home</a>
+								<a href="{{ url('') }}">Home</a>
 							</li>
-							<li>
-								<a href="{{ route('blog.create') }}">Add post</a>
-							</li>
-							<li class="">
-								<a href="{{ route('category.create') }}">Add category</a>
-							</li>
+
 						</ol>
 					</div>
 				</div>
@@ -29,8 +24,16 @@
 		<!-- Blog Standard -->
 		<section class="section-wrap blog-standard pb-50">
 			<div class="container relative">
-				<div class="row">
+                @if (Auth::check())
+                <a href="{{ route('category.create')  }}" class="btn btn-success btn-md mt-50">Add Category</a>
+                <a href="{{ route('blog.create')  }}" class="btn btn-success btn-md mt-50">Add Post</a>
+                @endif
 
+                @if ($posts)
+                <div class="row">
+                    {{-- @if (Auth::check()) --}}
+
+                    {{-- @endif --}}
 					<!-- content -->
 					<div class="col-md-8 post-content mb-50">
                       @foreach ($posts as $post )
@@ -74,18 +77,18 @@
 									<li class="entry-date">
 										<i class="fa fa-clock-o"></i><a href="#">{{ $post->created_at }}</a>
 									</li>
-                                    @foreach ($post->categories as $cat)
+                                    {{-- @foreach ($post->categories as $cat)
                                     <li class="entry-category">
-										<i class="fa fa-folder-open"></i><a href="#">{{ $cat->title }}</a>
+										<i class="fa fa-folder-open"></i><a href="#">{{ $cat->title}} </a>
 									</li>
-                                    @endforeach
+                                    @endforeach --}}
 
 									<li class="entry-author">
 										<i class="fa fa-user"></i><a href="#">Admin</a>
 									</li>
-									<li class="entry-comments">
+									{{-- <li class="entry-comments">
 										<i class="fa fa-comments"></i><a href="blog-single.html">15</a>
-									</li>
+									</li> --}}
 								</ul>
 								<div class="entry-content">
 									<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amadea is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur.</p>
@@ -101,12 +104,7 @@
 
 						<!-- Pagination -->
 						<nav class="pagination clear">
-							<a href="#"><i class="fa fa-angle-left"></i></a>
-							<span class="page-numbers current">1</span>
-							<a href="#">2</a>
-							<a href="#">3</a>
-							<a href="#">4</a>
-							<a href="#"><i class="fa fa-angle-right"></i></a>
+                            <span class="page-numbers">{{ $po->links() }}</span>
 						</nav>
 
 					</div> <!-- end col -->
@@ -124,28 +122,12 @@
 						<!-- Categories -->
 						<div class="widget categories">
 							<h3 class="widget-title heading relative heading-small uppercase bottom-line style-2 left-align">Categories</h3>
-							<ul class="list-dividers">
-								<li>
-									<a href="#">Business<span>106</span></a>
-								</li>
-								<li class="active-cat">
-									<a href="#">Science<span>77</span></a>
-								</li>
-								<li>
-									<a href="#">Sport<span>68</span></a>
-								</li>
-								<li>
-									<a href="#">Politics<span>57</span></a>
-								</li>
-								<li>
-									<a href="#">Lifestyle<span>125</span></a>
-								</li>
-								<li>
-									<a href="#">World<span>344</span></a>
-								</li>
-								<li>
-									<a href="#">Travel<span>128</span></a>
-								</li>
+                            <ul class="list-dividers">
+                                @foreach ($categories as $cat)
+                                <li>
+                                    <a href="#">{{ $cat->title }}</a>
+                                </li>
+                                @endforeach
 							</ul>
 						</div>
 
@@ -220,6 +202,7 @@
 					</aside> <!-- end sidebar -->
 
 				</div> <!-- end row -->
+                @endif
 			</div> <!-- end container -->
 		</section> <!-- end blog standard -->
     </div>

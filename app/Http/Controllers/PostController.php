@@ -9,14 +9,22 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    function __construct(){
+        $this->middleware('auth')->except('index');
+    }
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $post = Post::paginate(5);
         $posts = Post::all();
+        $categories = Category::all();
 
-       return view('blog.index',['title'=>'Illustration', 'posts'=>$posts]);
+       return view('blog.index',['title'=>'Illustration', 'posts'=>$posts,'po'=>$post,'categories'=>$categories]);
     }
 
     /**
@@ -57,9 +65,6 @@ class PostController extends Controller
                 'body' => $request->info,
                 'photo' => $newImageName
             ]);
-            $post->save();
-            $post->categories()->attach($request->category);
-
 
             foreach($request->photos as $photo){
 
@@ -76,6 +81,9 @@ class PostController extends Controller
                         'post_id' => $post->id,
                         'filename' => $newFileName
                     ]);
+                    $post->save();
+                    $post->categories()->attach($request->category);
+
                     $post->blogImages()->save($blogImage);
                 }else{
                     echo "something went wrong";

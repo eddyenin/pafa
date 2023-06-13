@@ -3268,7 +3268,7 @@ body.fs-open {
   background-color: #fff;
   padding: 8px;
   font-size: 13px;
-  display: inline-block;
+  /* display: inline-block; */
   border-bottom: 2px solid #f2f2f2;
   width: 38px;
   height: 38px;

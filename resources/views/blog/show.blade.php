@@ -14,12 +14,14 @@
 							<li>
 								<a href="index.html">Home</a>
 							</li>
-							<li>
-								<a href="index.html">Add post</a>
+                            @if (Auth::check())
+                            <li>
+								<a href="{{ route('blog.create') }}">Add post</a>
 							</li>
-							<li class="active">
-								Add category
+							<li class="">
+								<a href="{{ route('category.create') }}">Add category</a>
 							</li>
+                            @endif
 						</ol>
 					</div>
 				</div>

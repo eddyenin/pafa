@@ -10,15 +10,17 @@
 				<div class="title-holder">
 					<div class="title-text">
 						<h1 class="uppercase">{{ $title }}</h1>
-						<ol class="breadcrumb">
+						{{-- <ol class="breadcrumb">
 							<li>
 								<a href="{{ route('blog.index') }}">Back</a>
 							</li>
-
-							<li class="active">
-								<a href="{{ route('category.create') }}">Edit category</a>
+                            @if (Auth::check())
+                            <li class="active">
+								<a href="{{ route('category.create') }}">Add category</a>
 							</li>
-						</ol>
+                            @endif
+
+						</ol> --}}
 					</div>
 				</div>
 			</div>
@@ -36,12 +38,13 @@
                         <h2 class="">
                             <a href="Javascript:void()">{{ $title }}</a>
                         </h2>
-						<form class="" action="{{ route('blog.update'.'/'.$post->id) }}" method="POST" enctype="multipart/form-data">
+                        <span></span>
+						<form class="mt-10" action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">
                                 <label for="Title">Category</label>
-                               <select name="category" id="" class="form-control">
+                               <select name="category" id="" class="form-control" required>
                                     <option value="">select category...</option>
                                     @foreach ($categories as $category )
                                         <option value="{{ $category->id }}">{{ $category->title }}</option>
@@ -53,21 +56,22 @@
                                 <input type="text" class="form-control" name="title" value="{{ $post->title }}">
 							</div>
                             <div class="form-group ">
+                                <label for="">Main photo</label>
+                                <input type="file" class="" name="image" placeholder="">
+							</div>
+                            <div class="form-group ">
                                 <label for="">Photos</label>
                                 <input type="file" class="" name="photos[]" placeholder="" multiple>
 							</div>
                             <div class="form-group">
                                 <label for="">Message</label>
-                               <textarea name="info" id="" cols="30" rows="10">{{ $post->message }}</textarea>
+                               <textarea name="info" id="" cols="30" rows="10">{{ $post->body }}</textarea>
 							</div>
                             <div class="form-group">
                                <button class="btn btn-success btn-md">submit</button>
+                               <a href="{{ url('blog') }}" class="btn btn-success btn-md">back</a>
 							</div>
 						</form> <!-- end standard post -->
-
-
-
-
 					</div> <!-- end col -->
 
 					<!-- Sidebar -->
@@ -83,29 +87,17 @@
 						<!-- Categories -->
 						<div class="widget categories">
 							<h3 class="widget-title heading relative heading-small uppercase bottom-line style-2 left-align">Categories</h3>
+
 							<ul class="list-dividers">
-								<li>
-									<a href="#">Business<span>106</span></a>
+                                @foreach ($categories as $cat)
+                                <li>
+									<a href="#">{{ $cat->title }}</a>
 								</li>
-								<li class="active-cat">
-									<a href="#">Science<span>77</span></a>
-								</li>
-								<li>
-									<a href="#">Sport<span>68</span></a>
-								</li>
-								<li>
-									<a href="#">Politics<span>57</span></a>
-								</li>
-								<li>
-									<a href="#">Lifestyle<span>125</span></a>
-								</li>
-								<li>
-									<a href="#">World<span>344</span></a>
-								</li>
-								<li>
-									<a href="#">Travel<span>128</span></a>
-								</li>
+                                @endforeach
 							</ul>
+                            @if (Auth::check())
+                            <a href="{{ route('category.create')  }}" class="btn btn-success btn-md mt-50">Add Category</a>
+                            @endif
 						</div>
 
                     </aside>
