@@ -39,13 +39,17 @@
                             <a href="Javascript:void()">{{ $title }}</a>
                         </h2>
                         <span></span>
-						<form class="mt-10" action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+						<form class="mt-10" action="{{ url('blog/' .$post->slug) }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('patch')
 
                             <div class="form-group">
                                 <label for="Title">Category</label>
                                <select name="category" id="" class="form-control" required>
-                                    <option value="">select category...</option>
+                                @foreach ($post->categories as $cat)
+                                <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                                @endforeach
+
                                     @foreach ($categories as $category )
                                         <option value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
@@ -55,17 +59,17 @@
                                 <label for="Title">Title</label>
                                 <input type="text" class="form-control" name="title" value="{{ $post->title }}">
 							</div>
-                            <div class="form-group ">
+                            {{-- <div class="form-group ">
                                 <label for="">Main photo</label>
                                 <input type="file" class="" name="image" placeholder="">
-							</div>
+							</div> --}}
                             <div class="form-group ">
                                 <label for="">Photos</label>
                                 <input type="file" class="" name="photos[]" placeholder="" multiple>
 							</div>
                             <div class="form-group">
                                 <label for="">Message</label>
-                               <textarea name="info" id="" cols="30" rows="10">{{ $post->body }}</textarea>
+                               <textarea name="info" id="" cols="30" rows="10" class="ckeditor">{{ $post->body }}</textarea>
 							</div>
                             <div class="form-group">
                                <button class="btn btn-success btn-md">submit</button>

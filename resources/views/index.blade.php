@@ -547,37 +547,24 @@
 				<div class="row">
 
 
-
-                        <article class="col-md-3 col-sm-6 col-xs-12 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
-                            <div class="entry-img">
-
-                                    <a href="blog-single.html" class="hover-scale">
-                                        <img src="{{ asset('img/photos/643ff93f56d17-logo5.png') }}" alt="">
-                                    </a>
-                                    <div class="entry-date">
-                                        <span>28</span>
-                                        <span>nov</span>
-                                    </div>
-
-
+                    @foreach($post as $p)
+                    <article class="col-md-3 col-sm-6 col-xs-12 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
+                        <div class="entry-img">
+                            <a href="blog-single.html" class="hover-scale">
+                                <img src="{{ asset('img/photos/') }}" alt="">
+                            </a>
+                        </div>
+                        <div class="entry">
+                            <h4 class="entry-title"><a href="blog-single.html"></a>{{ $p->title }}</h4>
+                            <div class="entry-content">
+                                <p>{{ implode(' ', array_slice(explode(' ',strip_tags($p->body)  ), 0, 20));}}</p>
+                                <a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
                             </div>
-                            <div class="entry">
-                                <h4 class="entry-title"><a href="blog-single.html"></a></h4>
-                                <div class="entry-content">
-                                    <p>We possess within us two minds. So far I have written only of the conscious mind.</p>
-                                    <a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </article> <!-- end post -->
-
+                        </div>
+                    </article> <!-- end post -->
+                    @endforeach
 				</div>
                 <!-- end row -->
-
-                    <div class="entry-content col-md-3 col-sm-6 col-xs-12 mb-20">
-                        <p style="text-center">No illusrations yet!</p>
-                        {{-- <a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a> --}}
-                    </div>
-
 			</div>
 		</section> <!-- end from blog -->
 

@@ -30,7 +30,7 @@
                 @endif
 
                 @if ($posts)
-                <div class="row">
+                <div class="row mt-20">
                     {{-- @if (Auth::check()) --}}
 
                     {{-- @endif --}}
@@ -91,8 +91,8 @@
 									</li> --}}
 								</ul>
 								<div class="entry-content">
-									<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amadea is a simple and elegant template with tons of features. Lorem ipsum dolor sit amet, consectetur.</p>
-									<a href="blog-single.html" class="read-more dark-link">
+									<p>{{ implode(' ', array_slice(explode(' ',strip_tags($post->body)  ), 0, 50));}}</p>
+									<a href="{{ url('blog/'. $post->slug) }}" class="read-more dark-link">
 										Read More <i class="fa fa-angle-right"></i>
 									</a>
 								</div>

@@ -11,7 +11,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','slug','body','photo'];
+    protected $fillable = ['title','slug','body'];
 
     public function blogImages():HasMany
     {

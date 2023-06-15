@@ -11,7 +11,7 @@ class PostController extends Controller
 {
 
     function __construct(){
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except('index','show');
     }
 
 
@@ -44,6 +44,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $slug = str_replace(' ', '-', $request->title);
+       // var_dump($request->info);die;
 
          $request->validate([
             'title' => ['required', 'unique:posts', 'max:200'],
@@ -52,19 +53,21 @@ class PostController extends Controller
             'info' => ['required']
         ]);
 
-        if ($request->hasFile('photos'))
-        {
-            $image = $request->image;
-            $imageName = $image->getClientOriginalName();
+        //if ($request->hasFile('photos'))
+       // {
+            //$image = $request->image;
+           // $imageName = $image->getClientOriginalName();
             //$imageExt = $image->getClientOriginalExtension();
-            $newImageName = uniqid() . '-' . $imageName;
+            //$newImageName = uniqid() . '-' . $imageName;
 
             $post = new Post([
                 'title' => $request->title,
                 'slug' => $slug,
-                'body' => $request->info,
-                'photo' => $newImageName
+                'body' => $request->info
+                // 'photo' => $newImageName
             ]);
+            $post->save();
+            $post->categories()->attach($request->category);
 
             foreach($request->photos as $photo){
 
@@ -81,8 +84,7 @@ class PostController extends Controller
                         'post_id' => $post->id,
                         'filename' => $newFileName
                     ]);
-                    $post->save();
-                    $post->categories()->attach($request->category);
+
 
                     $post->blogImages()->save($blogImage);
                 }else{
@@ -90,7 +92,7 @@ class PostController extends Controller
                 }
 
             }
-        }
+        //}
 
         return redirect(route('blog.create'))->with('status', 'Post successful');
     }
@@ -98,24 +100,26 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
         //
-        $post = Post::findOrfail($id);
+        $post = Post::where('slug',$slug)->first();
+        $title = $post->title;
 
-        return view('blog.show', ['post' => $post]);
+        return view('blog.show', ['post' => $post,'title'=>$title]);
 
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $slug)
     {
-        //
-        $post = Post::findOrfail($id);
+        $categories = Category::all();
+        $post = Post::where('slug',$slug)->first();
+        // var_dump($post);die;
 
-        return view('blog.edit', ['post' => $post, 'title' => 'Edit post']);
+        return view('blog.edit', ['post' => $post, 'title' => 'Edit post', 'categories'=>$categories]);
     }
 
     /**
@@ -124,6 +128,23 @@ class PostController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $slug = str_replace(' ', '-', $request->title);
+
+        $request->validate([
+           'title' => ['required', 'unique:posts', 'max:200'],
+           'category'=>['required'],
+           'info' => ['required']
+       ]);
+
+
+        $post = new Post([
+            'title' => $request->title,
+            'slug' => $slug,
+            'body' => $request->info
+            // 'photo' => $newImageName
+        ]);
+        $post->save();
+        $post->categories()->attach($request->category);
     }
 
     /**

@@ -11,13 +11,7 @@
 					<div class="title-text">
 						<h1 class="uppercase">{{ $title }}</h1>
 						<ol class="breadcrumb">
-							<li>
-								<a href="{{ route('blog.index') }}">Back</a>
-							</li>
 
-							<li class="active">
-								<a href="{{ route('blog.create') }}">Add post</a>
-							</li>
 						</ol>
 					</div>
 				</div>
@@ -46,6 +40,9 @@
 
                             <div class="form-group">
                                <button class="btn btn-success btn-md">submit</button>
+                               @if (Auth::check())
+                                <a href="{{ route('blog.create')  }}" class="btn btn-success btn-md">Add Post</a>
+                                @endif
 							</div>
 						</form> <!-- end standard post -->
 

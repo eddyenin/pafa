@@ -55,17 +55,17 @@
                                 <label for="Title">Title</label>
                                 <input type="text" class="form-control" name="title" placeholder="Title">
 							</div>
-                            <div class="form-group ">
+                            {{-- <div class="form-group ">
                                 <label for="">Main photo</label>
                                 <input type="file" class="" name="image" placeholder="">
-							</div>
+							</div> --}}
                             <div class="form-group ">
                                 <label for="">Photos</label>
                                 <input type="file" class="" name="photos[]" placeholder="" multiple>
 							</div>
                             <div class="form-group">
                                 <label for="">Message</label>
-                               <textarea name="info" id="" cols="30" rows="10"></textarea>
+                               <textarea name="info" id="" cols="30" rows="10" class="ckeditor form-control"></textarea>
 							</div>
                             <div class="form-group">
                                <button class="btn btn-success btn-md">submit</button>

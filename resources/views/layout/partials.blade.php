@@ -59,7 +59,7 @@
 						<!-- Logo -->
 						<div class="logo-container">
 							<div class="logo-wrap local-scroll">
-								<a href="#home">
+								<a href="{{ url('') }}">
 									<img class="logo" src="{{ asset('img/logo/pafa_logo_dark.png') }}" width="50px" alt="logo">
 								</a>
 							</div>
@@ -151,6 +151,7 @@
 		</div>
 
     <!-- jQuery Scripts -->
+    <script src="//cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
     <script src="https://kit.fontawesome.com/0c94bff300.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
@@ -169,5 +170,12 @@
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.navigation.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.migration.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.parallax.min.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
+
 </body>
 </html>
