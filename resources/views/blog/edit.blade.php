@@ -29,10 +29,10 @@
 		<!-- Blog Standard -->
 		<section class="section-wrap blog-standard pb-50">
 			<div class="container relative">
-				<div class="row">
+				<div class="row mt-50">
 
 					<!-- content -->
-					<div class="col-md-8 post-content mb-50">
+					<div class="col-md-8 post-content mt-50">
                        @include('inc.messages')
 
                         <h2 class="">

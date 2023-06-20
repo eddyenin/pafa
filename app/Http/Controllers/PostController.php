@@ -21,6 +21,7 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::paginate(5);
+       // $post = Post::where('created_at', 'desc');
         $posts = Post::all();
         $categories = Category::all();
 
@@ -69,29 +70,8 @@ class PostController extends Controller
             $post->save();
             $post->categories()->attach($request->category);
 
-            foreach($request->photos as $photo){
+            $this->insertImages($request,$post);
 
-                $allowedExtensions = ['png','jpg','jpeg','pdf','docx'];
-                $name = $photo->getClientOriginalName();
-                $ext = $photo->getClientOriginalExtension();
-
-                $newFileName = uniqid() . '-' . $name;
-                $check = in_array($ext,$allowedExtensions);
-
-                if($check){
-                    $photo->move(public_path('img/photos'), $newFileName);
-                    $blogImage = new BlogImages([
-                        'post_id' => $post->id,
-                        'filename' => $newFileName
-                    ]);
-
-
-                    $post->blogImages()->save($blogImage);
-                }else{
-                    echo "something went wrong";
-                }
-
-            }
         //}
 
         return redirect(route('blog.create'))->with('status', 'Post successful');
@@ -125,26 +105,34 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $slu)
     {
         //
+
         $slug = str_replace(' ', '-', $request->title);
 
-        $request->validate([
-           'title' => ['required', 'unique:posts', 'max:200'],
-           'category'=>['required'],
-           'info' => ['required']
-       ]);
+
+       $update = Post::where('slug',$slu)->first();
+       //$getUpdateId = $update->id;
+       //var_dump($getUpdateId);die;
+
+       $updated = [
+        'title' => $request->title,
+        'slug' => $slug,
+        'body' => $request->info
+    ];
+
+        $update->categories->id = $request->category;
+       // echo "<pre>"; print_r($update->categories);die;
+        $update->categories()->attach($request->category);
+        $update->update($updated);
+
+      // $update->push();
 
 
-        $post = new Post([
-            'title' => $request->title,
-            'slug' => $slug,
-            'body' => $request->info
-            // 'photo' => $newImageName
-        ]);
-        $post->save();
-        $post->categories()->attach($request->category);
+
+       // $this->insertImages($request,$update);
+       return redirect(url('blog/' .$update->slug.'/edit'))->with('status', 'updated successful');
     }
 
     /**
@@ -153,6 +141,34 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    private function insertImages($request,$post){
+
+        foreach($request->photos as $photo){
+
+            $allowedExtensions = ['png','jpg','jpeg','pdf','docx'];
+            $name = $photo->getClientOriginalName();
+            $ext = $photo->getClientOriginalExtension();
+
+            $newFileName = uniqid() . '-' . $name;
+            $check = in_array($ext,$allowedExtensions);
+
+            if($check){
+                $photo->move(public_path('img/photos'), $newFileName);
+                $blogImage = new BlogImages([
+                    'post_id' => $post->id,
+                    'filename' => $newFileName
+                ]);
+
+                $post->blogImages()->save($blogImage);
+            }else{
+                echo "something went wrong";
+            }
+
+        }
+
+
     }
 
 }

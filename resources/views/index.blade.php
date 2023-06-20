@@ -46,13 +46,10 @@
 	</div>
 
 	<header class="nav-type-2 onepage-nav" id="home">
-
 		<nav class="navbar navbar-fixed-top">
 			<div class="navigation-overlay dark">
 				<div class="container-fluid semi-fluid relative">
-
 					<div class="row">
-
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
 								<span class="sr-only">Toggle navigation</span>
@@ -79,26 +76,19 @@
 									<li class="active">
 										<a href="#home">Home</a>
 									</li>
-									<!-- <li>
-										<a href="#intro">About</a>
-									</li> -->
+
 									<li>
 										<a href="#portfolio">Project</a>
 									</li>
 									<li>
 										<a href="#services">Services</a>
 									</li>
-									<!-- <li>
-										<a href="#about-us">Awards</a>
-									</li>							             -->
 									<li>
 										<a href="#blog">Illustration</a>
 									</li>
 									<li>
 										<a href="#contact">Contact</a>
 									</li>
-
-
 								</ul>
 							</div>
 						</div> <!-- end col -->
@@ -110,10 +100,8 @@
 	</header>
 
 	<div class="main-wrapper oh">
-
 		<!-- Text Rotator -->
 		<section class="hero-wrap text-center" style="background: url('img/pafa/PAFA_BG_.jpg') no-repeat, center center/cover;">
-
 			<div class="container container-full-height" >
 				<div class="hero-holder">
 					<div class="hero-message text-rotator">
@@ -129,8 +117,6 @@
 			</div>
 
 		</section> <!-- end text rotator -->
-
-
 		<!-- Intro -->
 		<section class="section-wrap intro" id="intro">
 			<div class="container">
@@ -157,7 +143,6 @@
 			</div> <!-- end container -->
 		</section> <!-- end intro -->
 
-
 		<!-- Portfolio Slider-->
 		<section class="featured-works" id="portfolio">
 			<div class="container-fluid">
@@ -169,37 +154,29 @@
 				</div>
 
 				<div class="row">
-
 					<div id="owl-featured-works" class="owl-carousel owl-theme">
-
 						<div class="work-item hover-2">
 							<div class="work-container">
 								<div class="work-img">
 									<a href="img/pafa/pic_1.jpg" class="lightbox-gallery" title="pafa">
 										<img src="img/pafa/pic_1.jpg"  alt="">
 										<div class="work-overlay">
-											<div class="work-description">
+											{{-- <div class="work-description">
 												<h2 class="color-white">pafa</h2>
 												<span>project</span>
-											</div>
+											</div> --}}
 										</div>
 									</a>
 								</div>
 							</div>
 						</div> <!-- end work-item -->
-
-
-
 						<div class="work-item hover-2">
 							<div class="work-container">
 								<div class="work-img">
 									<a href="img/pafa/pic_2.jpg" class="lightbox-gallery" title="pafa">
 										<img src="img/pafa/pic_2.jpg"  alt="">
 										<div class="work-overlay">
-											<div class="work-description">
-												<h2 class="color-white">pafa</h2>
-												<span>project</span>
-											</div>
+
 										</div>
 									</a>
 								</div>
@@ -212,16 +189,12 @@
 									<a href="img/pafa/pic_3.jpg" class="lightbox-gallery" title="pafa">
 										<img src="img/pafa/pic_3.jpg"  alt="">
 										<div class="work-overlay">
-											<div class="work-description">
-												<h2 class="color-white">pafa</h2>
-												<span>project</span>
-											</div>
+
 										</div>
 									</a>
 								</div>
 							</div>
 						</div> <!-- end work-item -->
-
 
 						<div class="work-item hover-2">
 							<div class="work-container">
@@ -229,33 +202,24 @@
 									<a href="img/pafa/pic_4.jpg" class="lightbox-gallery" title="pafa">
 										<img src="img/pafa/pic_4.jpg"  alt="">
 										<div class="work-overlay">
-											<div class="work-description">
-												<h2 class="color-white">pafa</h2>
-												<span>project</span>
-											</div>
+
 										</div>
 									</a>
 								</div>
 							</div>
 						</div> <!-- end work-item -->
-
-
 						<div class="work-item hover-2">
 							<div class="work-container">
 								<div class="work-img">
 									<a href="img/pafa/pic_5.jpg" class="lightbox-gallery" title="pafa">
 										<img src="img/pafa/pic_5.jpg"  alt="">
 										<div class="work-overlay">
-											<div class="work-description">
-												<h2 class="color-white">pafa</h2>
-												<span>project</span>
-											</div>
+
 										</div>
 									</a>
 								</div>
 							</div>
 						</div> <!-- end work-item -->
-
 
 						<div class="work-item hover-2">
 							<div class="work-container">
@@ -263,10 +227,7 @@
 									<a href="img/pafa/pic_6.jpg" class="lightbox-gallery" title="pafa">
 										<img src="img/pafa/pic_6.jpg"  alt="">
 										<div class="work-overlay">
-											<div class="work-description">
-												<h2 class="color-white">pafa</h2>
-												<span>project</span>
-											</div>
+
 										</div>
 									</a>
 								</div>
@@ -279,10 +240,7 @@
 									<a href="img/pafa/pic_7.jpg" class="lightbox-gallery" title="pafa">
 										<img src="img/pafa/pic_7.jpg"  alt="">
 										<div class="work-overlay">
-											<div class="work-description">
-												<h2 class="color-white">pafa</h2>
-												<span>project</span>
-											</div>
+
 										</div>
 									</a>
 								</div>
@@ -295,21 +253,15 @@
 									<a href="img/pafa/pic_4_copy.jpg" class="lightbox-gallery" title="pafa">
 										<img src="img/pafa/pic_4_copy.jpg"  alt="">
 										<div class="work-overlay">
-											<div class="work-description">
-												<h2 class="color-white">pafa</h2>
-												<span>project</span>
-											</div>
+
 										</div>
 									</a>
 								</div>
 							</div>
 						</div> <!-- end work-item -->
 
-
-
 					</div>	<!-- end slider -->
 				</div> <!-- end row -->
-
 			</div>
 		</section> <!-- end featured works -->
 
@@ -458,14 +410,14 @@
 							<div class="team-img" onclick="return true">
 								<img src="img/pafa/award_1.jpg" alt="">
 								<div class="overlay">
-									<div class="team-details text-center">
+									{{-- <div class="team-details text-center">
 										<div class="social-icons rounded">
 											<a href="#"><i class="fa fa-facebook"></i></a>
 											<a href="#"><i class="fa fa-twitter"></i></a>
 											<a href="#"><i class="fa fa-google-plus"></i></a>
 											<a href="#"><i class="fa fa-envelope"></i></a>
 										</div>
-									</div>
+									</div> --}}
 								</div>
 							</div>
 							{{-- <h4 class="team-title">David Geller</h4>
@@ -478,14 +430,7 @@
 							<div class="team-img">
 								<img src="img/pafa/award_2.jpg" alt="">
 								<div class="overlay">
-									<div class="team-details text-center">
-										<div class="social-icons rounded">
-											<a href="#"><i class="fa fa-facebook"></i></a>
-											<a href="#"><i class="fa fa-twitter"></i></a>
-											<a href="#"><i class="fa fa-google-plus"></i></a>
-											<a href="#"><i class="fa fa-envelope"></i></a>
-										</div>
-									</div>
+
 								</div>
 							</div>
 
@@ -497,14 +442,7 @@
 							<div class="team-img">
 								<img src="img/pafa/award_3.jpg" alt="">
 								<div class="overlay">
-									<div class="team-details text-center">
-										<div class="social-icons rounded">
-											<a href="#"><i class="fa fa-facebook"></i></a>
-											<a href="#"><i class="fa fa-twitter"></i></a>
-											<a href="#"><i class="fa fa-google-plus"></i></a>
-											<a href="#"><i class="fa fa-envelope"></i></a>
-										</div>
-									</div>
+
 								</div>
 							</div>
 
@@ -524,7 +462,7 @@
 					<div class="col-xs-12 text-center">
 						<h3 class="color-white">Are you ready to join our ONLINE tutorials? Now is a Great Opportunity</h3>
 						<div class="cta-button">
-							<a href="#" class="btn btn-lg btn-transparent">Register Now</a>
+							<a href="https://selar.co/m/preciousapparel" target="blank" class="btn btn-lg btn-transparent">Register Now</a>
 						</div>
 					</div>
 
@@ -536,24 +474,23 @@
 		<!-- From Blog -->
 		<section class="section-wrap-lg pb-90 pb-mdm-50 from-blog" id="blog">
 			<div class="container">
-
 				<div class="row heading">
 					<div class="col-md-6 col-md-offset-3 text-center">
 						<h2 class="uppercase bottom-line">Illustrations</h2>
 						<p class="subheading style-2">We help our clients market to the world and inspire minds of people</p>
 					</div>
 				</div>
-
+                @if ($post != false)
 				<div class="row">
-
-
                     @foreach($post as $p)
-                    <article class="col-md-3 col-sm-6 col-xs-12 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
+                    <article class="col-4  col-md-4 col-xs-4 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
+                        @if ($p->blogImages)
                         <div class="entry-img">
-                            <a href="blog-single.html" class="hover-scale">
-                                <img src="{{ asset('img/photos/') }}" alt="">
+                            <a href="{{ url('blog') }}" class="hover-scale">
+                                <img src="{{ asset('img/photos/'.$p->blogimages[0]['filename']) }}"style="width:100%" alt="">
                             </a>
                         </div>
+                        @endif
                         <div class="entry">
                             <h4 class="entry-title"><a href="blog-single.html"></a>{{ $p->title }}</h4>
                             <div class="entry-content">
@@ -564,6 +501,17 @@
                     </article> <!-- end post -->
                     @endforeach
 				</div>
+                @else
+                <div class="entry">
+                    <div class="entry-content text-center">
+                        <p>No posts yet!</p>
+                        @if(Auth::check())
+                        <a href="{{ route('blog.create')  }}" class="btn btn-success btn-md mt-50">Add Post</a>
+                        @endif
+                    </div>
+                </div>
+
+                @endif
                 <!-- end row -->
 			</div>
 		</section> <!-- end from blog -->
@@ -578,43 +526,34 @@
 				</div>
 			</div>
 			<div class="container-fluid  bg-dark">
-
 				<div class="row">
-
 					<div id="owl-partners" class="owl-carousel owl-theme">
-
 						<div class="item">
 							<a href="#">
 								<img src="img/logo/logo5.png" alt="">
 							</a>
 						</div>
-
 						<div class="item">
 							<a href="#">
 								<img src="img/logo/logo4.png" alt="">
 							</a>
 						</div>
-
 						<div class="item">
 							<a href="#">
 								<img src="img/logo/logo3.png" alt="">
 							</a>
 						</div>
-
 						<div class="item">
 							<a href="#">
 								<img src="img/logo/logo2.png" alt="">
 							</a>
 						</div>
-
 						<div class="item">
 							<a href="#">
 								<img src="img/logo/logo1.png" alt="">
 							</a>
 						</div>
-
 					</div> <!-- end carousel -->
-
 				</div>
 			</div>
 		</section> <!-- end partners -->
@@ -706,9 +645,9 @@
 
 							<div class="footer-socials mt-mdm-10">
 								<div class="social-icons text-center">
-									<a href="#"><i class="fa fa-instagram"></i></a>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-youtube"></i></a>
+									<a href="https://instagram.com/preciousapparel__" target="blank"><i class="fa fa-instagram"></i></a>
+									<a href="https://facebook.com/preciousapparel" target="blank"><i class="fa fa-facebook"></i></a>
+									<a href="https://youtube.com/preciousapparel" target="blank"><i class="fa fa-youtube"></i></a>
 									<!-- <a href="#"><i class="fa fa-google-plus"></i></a> -->
 									{{-- <a href="#"><i class="fa fa-linkedin"></i></a> --}}
 									<!-- <a href="#"><i class="fa fa-vimeo"></i></a> -->

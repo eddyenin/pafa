@@ -71,7 +71,7 @@
 
 							<div class="entry">
 								<h2 class="entry-title">
-									<a href="blog-single.html">{{ $post->title }}</a>
+									<a href="{{ url('blog/'. $post->slug) }}">{{ $post->title }}</a>
 								</h2>
 								<ul class="entry-meta list-inline">
 									<li class="entry-date">

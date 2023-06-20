@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $post = Post::all();
+    //var_dump($post);
     // foreach($post as $p){
     //     if(isset($p->categories)){
     //         echo "<pre>"; print_r($p->categories);
