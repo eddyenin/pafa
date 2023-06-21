@@ -71,7 +71,7 @@
 								<ul class="nav navbar-nav local-scroll navbar-right">
 
 									<li class="">
-										<a href="#home">Home</a>
+										<a href="{{ url('') }}">Home</a>
 									</li>
 									<li>
 										<a href="#portfolio">Project</a>

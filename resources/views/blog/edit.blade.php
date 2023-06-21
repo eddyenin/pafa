@@ -29,7 +29,7 @@
 		<!-- Blog Standard -->
 		<section class="section-wrap blog-standard pb-50">
 			<div class="container relative">
-				<div class="row mt-50">
+				<div class="row">
 
 					<!-- content -->
 					<div class="col-md-8 post-content mt-50">
@@ -79,7 +79,7 @@
 					</div> <!-- end col -->
 
 					<!-- Sidebar -->
-					<aside class="col-md-4 sidebar">
+					<aside class="col-md-4 sidebar mt-50">
 
 						<div class="widget search">
 							<form class="relative">

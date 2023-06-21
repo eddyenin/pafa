@@ -22,7 +22,7 @@ class PostController extends Controller
     {
         $post = Post::paginate(5);
        // $post = Post::where('created_at', 'desc');
-        $posts = Post::all();
+        $posts = Post::all()->sortDesc();
         $categories = Category::all();
 
        return view('blog.index',['title'=>'Illustration', 'posts'=>$posts,'po'=>$post,'categories'=>$categories]);
@@ -45,34 +45,40 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $slug = str_replace(' ', '-', $request->title);
-       // var_dump($request->info);die;
 
-         $request->validate([
+        $request->validate([
             'title' => ['required', 'unique:posts', 'max:200'],
             'category'=>['required'],
             'photos' => 'required',
             'info' => ['required']
         ]);
 
-        //if ($request->hasFile('photos'))
-       // {
-            //$image = $request->image;
-           // $imageName = $image->getClientOriginalName();
-            //$imageExt = $image->getClientOriginalExtension();
-            //$newImageName = uniqid() . '-' . $imageName;
 
-            $post = new Post([
-                'title' => $request->title,
-                'slug' => $slug,
-                'body' => $request->info
-                // 'photo' => $newImageName
-            ]);
-            $post->save();
-            $post->categories()->attach($request->category);
+        // $image = $request->image;
+        // $imageName = $image->getClientOriginalName();
+        // $imageExt = $image->getClientOriginalExtension();
+        // $newImageName = uniqid() . '-' . $imageName;
 
+        $post = new Post([
+            'title' => $request->title,
+            'slug' => $slug,
+            'body' => $request->info
+            // 'photo' => $newImageName
+        ]);
+        $post->save();
+        $post->categories()->attach($request->category);
+
+        if($request->hasFile('photos')){
             $this->insertImages($request,$post);
+        }else{
+            $newFileName = uniqid() .'-'.'default.jpg';
+            $blogImage = new BlogImages([
+                'post_id' => $post->id,
+                'filename' => $newFileName
+            ]);
 
-        //}
+            $post->blogImages()->save($blogImage);
+        }
 
         return redirect(route('blog.create'))->with('status', 'Post successful');
     }
@@ -97,6 +103,7 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $post = Post::where('slug',$slug)->first();
+        //print_r($post->categories);
         // var_dump($post);die;
 
         return view('blog.edit', ['post' => $post, 'title' => 'Edit post', 'categories'=>$categories]);
@@ -108,39 +115,43 @@ class PostController extends Controller
     public function update(Request $request, string $slu)
     {
         //
-
-        $slug = str_replace(' ', '-', $request->title);
-
-
        $update = Post::where('slug',$slu)->first();
-       //$getUpdateId = $update->id;
-       //var_dump($getUpdateId);die;
+       $slug = str_replace(' ', '-', $request->title);
 
-       $updated = [
+       $validated = [
         'title' => $request->title,
         'slug' => $slug,
         'body' => $request->info
     ];
-
-        $update->categories->id = $request->category;
-       // echo "<pre>"; print_r($update->categories);die;
-        $update->categories()->attach($request->category);
-        $update->update($updated);
-
-      // $update->push();
-
-
+        //Delete the existing relationship in the pivot table
+        $update->categories()->detach();
+        $updated = $update->update($validated);
+        if($updated){
+            $update->categories()->attach($request->category);
+          return  redirect(url('blog/'.$update->slug.'/edit'))->with('status', 'Update successful');
+        }
 
        // $this->insertImages($request,$update);
-       return redirect(url('blog/' .$update->slug.'/edit'))->with('status', 'updated successful');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $slug)
     {
         //
+        $post = Post::where('slug',$slug)->first();
+        $postID = $post->id;
+        $postImages = BlogImages::where('post_id',$postID);
+        $deletePost = $post->delete();
+        if($deletePost){
+            $post->categories()->detach();
+            $postImages->delete();
+
+          return  redirect(url('blog'))->with('status', 'Post deleted');
+        }
+
     }
 
     private function insertImages($request,$post){

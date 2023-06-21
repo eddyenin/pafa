@@ -62,7 +62,7 @@
 						<!-- Logo -->
 						<div class="logo-container">
 							<div class="logo-wrap local-scroll">
-								<a href="#home">
+								<a href="{{ url('') }}">
 									<img class="logo" src="{{ asset('') }}img/logo/pafa_logo_white.png" width="50px" alt="logo">
 								</a>
 							</div>
@@ -74,7 +74,7 @@
 								<ul class="nav navbar-nav local-scroll navbar-right">
 
 									<li class="active">
-										<a href="#home">Home</a>
+										<a href="{{ url('') }}">Home</a>
 									</li>
 
 									<li>

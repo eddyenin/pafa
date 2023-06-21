@@ -20,11 +20,7 @@
 		<!-- Blog Standard -->
 		<section class="section-wrap blog-standard pb-50">
 			<div class="container relative">
-                <a href="{{ route('blog.index')  }}" class="btn btn-success btn-md mt-50">back</a>
-                @if (Auth::check())
-                <a href="{{ url('blog/'.$post->slug.'/edit')  }}" class="btn btn-success btn-md mt-50">edit</a>
-                <a href="" class="btn btn-danger btn-md mt-50">delete</a>
-                @endif
+
 
 				<div class="row">
 
@@ -76,6 +72,19 @@
 								<div class="entry-content">
 									<p>{{ strip_tags($post->body) }}</p>
 								</div>
+
+                                <div class="mt-20">
+                                    <a href="{{ route('blog.index')  }}" class="btn btn-success btn-md ">back</a>
+                                    @if (Auth::check())
+                                    <a href="{{ url('blog/'.$post->slug.'/edit')  }}" class="btn btn-success btn-md">edit</a>
+                                    <form method="post" action="{{ url('blog/'.$post->slug) }}" >
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger btn-md mt-10">delete</button>
+                                    </form>
+                                @endif
+                                </div>
+
 							</div>
 						</article> <!-- end standard post -->
 

@@ -48,8 +48,8 @@
                                         <!-- Slides -->
                                         @foreach ($post->blogImages as $img)
                                         <div class="swiper-slide">
-                                            <a href="#">
-                                                <img src="{{ asset('img/photos/'. $img->filename) }}" style="width:100%;display:flex;justify-content:center;align-items:center;flex-direction:row"alt="images">
+                                            <a href="{{ url('blog/'. $post->slug) }}">
+                                                <img src="{{ asset('img/photos/'. $img->filename) }}" style="display:flex;justify-content:center;align-items:center;flex-direction:row"alt="images">
                                             </a>
                                         </div>
                                         @endforeach
@@ -95,7 +95,10 @@
 									<a href="{{ url('blog/'. $post->slug) }}" class="read-more dark-link">
 										Read More <i class="fa fa-angle-right"></i>
 									</a>
+
 								</div>
+
+
 							</div>
 						</article> <!-- end standard post -->
                       @endforeach
