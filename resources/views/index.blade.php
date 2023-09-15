@@ -491,13 +491,13 @@
                             </a>
                         </div>
                         @endif
-                        <div class="entry">
-                            <h4 class="entry-title"><a href="blog-single.html"></a>{{ $p->title }}</h4>
-                            <div class="entry-content">
-                                <p>{{ implode(' ', array_slice(explode(' ',strip_tags($p->body)  ), 0, 20));}}</p>
-                                <a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
-                            </div>
+
+                        <div class="entry-content">
+                            <h4 class="entry-title"><a href="{{ url('blog') }}">{{ $p->title }}</a></h4>
+                            <p>{{ implode(' ', array_slice(explode(' ',strip_tags($p->body)  ), 0, 20));}}</p>
+                            <a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
+
                     </article> <!-- end post -->
                     @endforeach
 				</div>
