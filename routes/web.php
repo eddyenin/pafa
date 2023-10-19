@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $post = Post::all();
+
     //var_dump($post);
     // foreach($post as $p){
     //     if(isset($p->categories)){
@@ -44,7 +44,7 @@ Route::get('/', function () {
 
     // var_dump($p->blogImages);die;
 
-    return view('index', ['post'=>$post]);
+    return view('index', ['post'=> Post::all()]);
 })->name('pafa');
 
 Route::resource('/blog', PostController::class);
