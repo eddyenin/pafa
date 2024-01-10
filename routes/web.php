@@ -44,7 +44,7 @@ Route::get('/', function () {
 
     // var_dump($p->blogImages);die;
 
-    return view('index', ['post'=> Post::all()]);
+    return view('index');
 })->name('pafa');
 
 Route::resource('/blog', PostController::class);
