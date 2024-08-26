@@ -480,7 +480,7 @@
 						<p class="subheading style-2">We help our clients market to the world and inspire minds of people</p>
 					</div>
 				</div>
-                @if ($post != false)
+                @if ($post != NULL)
 				<div class="row">
                     @foreach($post as $p)
                     <article class="col-4  col-md-4 col-xs-4 mb-20 wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
@@ -494,7 +494,7 @@
 
                         <div class="entry-content">
                             <h4 class="entry-title"><a href="{{ url('blog') }}">{{ $p->title }}</a></h4>
-                            <p>{{ implode(' ', array_slice(explode(' ',strip_tags($p->body)  ), 0, 20));}}</p>
+                            <p>{{ implode(' ', array_slice(explode(' ',strip_tags($p->body)  ), 0, 18));}}</p>
                             <a href="{{ url('blog') }}" class="read-more dark-link">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
 
